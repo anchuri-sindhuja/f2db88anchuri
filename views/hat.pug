@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  - var result = [{"hat_color":"blue","hat_type":"bucket","hat_size": 7},{"hat_color":"red","hat_type":"bowler","hat_size":9},{"hat_color":"brown","hat_type":"beret","hat_size":8}]
+  div.container-fluid
+     div.row
+        each item,index in result
+            div.col-sm-2(onclick=`buy(${index})`) Hat Color : #{item["hat_color"]}  <br>  Hat Type : #{item["hat_type"]} <br> Hat Size : #{item["hat_size"]} 
+  script.
+      function buy(index){
+         alert("you purchased item "+(index+1))
+      }
+  
