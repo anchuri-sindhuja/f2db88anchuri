@@ -1,7 +1,7 @@
 # webapp-lab10
 This is my lab 10
 
-https://f2wb88anchuri.onrender.com
+https://dashboard.render.com/web/srv-cdmvbd5a49944a92hil0
 
 class hat{
         String hat_color;
