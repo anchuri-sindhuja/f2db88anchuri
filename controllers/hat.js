@@ -28,9 +28,9 @@ exports.hat_detail = async function(req, res) {
 
 
 // Handle hat delete form on DELETE. 
-exports.hat_delete = function(req, res) { 
-    res.send('NOT IMPLEMENTED: hat delete DELETE ' + req.params.id); 
-}; 
+//exports.hat_delete = function(req, res) { 
+  //  res.send('NOT IMPLEMENTED: hat delete DELETE ' + req.params.id); 
+//}; 
 
 // Handle hat update form on PUT. 
 
@@ -65,6 +65,20 @@ exports.hat_view_all_Page = async function(req, res) {
         res.send(`{"error": ${err}}`); 
     }   
 }; 
+
+// Handle Costume delete on DELETE. 
+exports.hat_delete = async function(req, res) { 
+    console.log("delete "  + req.params.id) 
+    try { 
+        result = await hat.findByIdAndDelete( req.params.id) 
+        console.log("Removed " + result) 
+        res.send(result) 
+    } catch (err) { 
+        res.status(500) 
+        res.send(`{"error": Error deleting ${err}}`); 
+    } 
+}; 
+
 
 exports.hat_create_post = async function(req, res) { 
     console.log(req.body) 
