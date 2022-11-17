@@ -1,27 +1,30 @@
 extends layout 
-
+ 
 block content 
   h1= title 
-
-  form(id='dishForm', action="/resource/hat", method="POST") 
+ 
+  form(id='hatForm', action="/resource/hat", method="POST")
+    div.form-group
+        label.hatAttr(for='hatid') hat id
+        input#hatid(type='number', name='hatid') 
     div.form-group 
-        label.hatAttr(for='hat_color') hat_color
-        input#hat_color(type='text', name='hat_color ') 
+        label.hatAttr(for='hat_color') hat color 
+        input#hat_color(type='text', name='hat_color') 
     div.form-group 
-        label.hatAttr(for='hat_type') hat_type 
-        input#hat_type(type='number', name='dishPrice', step='hat_type ') 
+        label.hatAttr(for='hat_size') hat size 
+        input#hat_size(type='number', name='hat_size') 
     div.form-group 
-        label.hatAttr(for='hat_size') hat_size
-        input#hat_size(type="text")(type='text', name='hat_size') 
+        label.hatAttr(for='hat_type') hat type 
+        input#hat_type(type='text', name='hat_type') 
     input(type="submit") 
-
+ 
   script. 
     document.forms['hatForm'].addEventListener('submit', (event) => { 
-      event.preventDefault(); 
+     event.preventDefault(); 
       // TODO do something here to show user that form is being submitted 
-      fetch(event.target.action, { 
-        method: 'POST', 
-        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+    fetch(event.target.action, { 
+    method: 'POST',
+      body: new URLSearchParams(new FormData(event.target)) 
       }).then((resp) => { 
         return resp.json(); // or resp.text() or whatever the server sends 
       }).then((body) => { 
@@ -31,4 +34,4 @@ block content
         // TODO handle error 
         alert("Save failed " + error ) 
       }); 
-    }); 
+      });
