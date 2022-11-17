@@ -1,22 +1,23 @@
-extends layout 
- 
-block content 
-  h1= title 
- 
-  - let hatid = toShow._id 
-  - let hat_color = toShow.hat_color 
-  - let hat_type = toShow.hat_type
-  - let hat_size = toShow.hat_size 
-  div 
-    div.row 
-      div(class='hatAttr mr-3') hat ID   is: 
-      div #{hatid} 
-    div.row 
-      div(class='hatAttr mr-3') hat_color is: 
-      div #{hat_color} 
-    div.row 
-      div(class='hatAttr mr-3') hat_type is: 
-      div #{hat_type} 
-    div.row 
-      div(class='hatAttr mr-3') hat_size  is: 
-      div #{hat_size} 
+extends layout
+block content
+  h1= title
+  if (toShow == null) 
+    h2 No instance to delete 
+  else    
+    - let hatid = toShow._id
+    - let hat_color  = toShow.hat_color
+    - let hat_type  = toShow.hat_type 
+    - let hat_size  = toShow.hat_size 
+    div
+    div.row
+    div(class='hatAttr mr-3') hat ID is:
+    div #{hatid}
+    div.row
+    div(class='hatAttr mr-3') hat color is:
+    div #{hat_color}
+    div.row
+    div(class='hatAttr mr-3') hat type is:
+    div #{hat_type}
+    div.row
+    div(class='hatAttr mr-3') hat size  is:
+    div #{hat_size}
