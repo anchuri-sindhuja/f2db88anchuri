@@ -128,9 +128,9 @@ exports.hat_create_post = async function(req, res) {
     } 
 }; 
 
-    // Handle building the view for updating a hat. 
-    // query provides the id 
-    exports.hat_update_Page =  async function(req, res) { 
+   // Handle building the view for updating a hat. 
+   // query provides the id 
+   exports.hat_update_Page =  async function(req, res) { 
     console.log("update view for item "+req.query.id) 
     try{ 
         let result = await hat.findById(req.query.id) 
@@ -142,3 +142,17 @@ exports.hat_create_post = async function(req, res) {
     } 
 }; 
  
+
+// Handle a delete one view with id from query 
+exports.hat_delete_Page = async function(req, res) { 
+    console.log("Delete view for id "  + req.query.id) 
+    try{ 
+        result = await hat.findById(req.query.id) 
+        res.render('hatdelete', { title: 'hat Delete', toShow: 
+result }); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
+    } 
+}; 
