@@ -27,5 +27,15 @@ router.get('/hat/:id', hat_controller.hat_detail);
 // GET request for list of all hat items. 
 router.get('/hat', hat_controller.hat_list); 
 
+// GET detail hat page */ 
+router.get('/detail', hat_controller.hat_view_one_Page); 
+
+/* GET create hat page */ 
+router.get('/create', hat_controller.hat_create_Page); 
+
+/* GET create update page */ 
+router.get('/update', hat_controlers.hat_update_Page); 
+ 
+
 module.exports = router; 
 
