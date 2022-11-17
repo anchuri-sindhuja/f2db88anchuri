@@ -34,7 +34,10 @@ router.get('/detail', hat_controller.hat_view_one_Page);
 router.get('/create', hat_controller.hat_create_Page); 
 
 /* GET create update page */ 
-router.get('/update', hat_controlers.hat_update_Page); 
+router.get('/update', hat_controller.hat_update_Page); 
+
+/* GET delete hat page */ 
+router.get('/delete', hat_controller.hat_delete_Page); 
  
 
 module.exports = router; 
