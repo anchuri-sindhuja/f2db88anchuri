@@ -1,15 +1,15 @@
 extends layout
-
 block content
   h1= title
-  p Welcome to #{title}
-  - var hats = results
-  div.container-fluid
-     div.row
-        each item,index in hats
-            div.col-sm-2(onclick=`buy(${index})`) Hat Color : #{item["hat_color"]}  <br>  Hat Type : #{item["hat_type"]} <br> Hat Size : #{item["hat_size"]} 
+  - let hat =results
+  div(class="container-fluid")
+  div(class="row m-1")
+   each item in hat  
+    - let destination = 'dispatch("/hat/update?id=${item._id}\")'
+    div(class="row-sm-2" class="m-1") #{item.hat_color}, #{item.hat_type}, #{item.hat_size}
+      button.btn( class="btn-primary ml-1", onclick= destination) Update
   script.
-      function buy(index){
-         alert("you purchased item "+(index+1))
-      }
-  
+    function dispatch(path)
+    {
+      window.location.href=path
+    }
