@@ -2,11 +2,11 @@ const mongoose = require("mongoose")
 
 const hatSchema = mongoose.Schema({
 
-    hat_color: String,
+    hat_color: {type: String,required: [true, 'hat color cannot be empty']}, 
 
-    hat_type:String,
+    hat_type:{type: String,required: [true, 'hat type cannot be empty']}, 
 
-    hat_size : Number,
+    hat_size : {type: Number,required: [true, 'hat size cannot be empty']}
 
 })
 

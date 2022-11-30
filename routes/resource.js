@@ -1,44 +1,30 @@
-var express = require('express'); 
-var router = express.Router(); 
+var express = require('express');
+var router = express.Router();
+var api_controller = require('../controllers/api');
+var hat_controller = require('../controllers/hat');
+/// API ROUTE ///
 
-// Require controller modules. 
-var api_controller = require('../controllers/api'); 
-var hat_controller = require('../controllers/hat'); 
+// GET resources base.
 
-/// API ROUTE /// 
+router.get('/', api_controller.api);
 
-// GET resources base. 
-router.get('/', api_controller.api); 
+/// hat ROUTES ///
+// POST request for creating a hat.  
+router.post('/hat', hat_controller.hat_create_post);
+// DELETE request to delete hat.
 
-/// hat ROUTES /// 
+router.delete('/hat/:id', hat_controller.hat_delete);
 
-// POST request for creating a hat.  
-router.post('/hat', hat_controller.hat_create_post); 
+// PUT request to update hat.
 
-// DELETE request to delete hat. 
-router.delete('/hat/:id', hat_controller.hat_delete); 
+router.put('/hat/:id', hat_controller.hat_update_put);
 
-// PUT request to update hat. 
-router.put('/hat/:id', hat_controller.hat_update_put); 
+// GET request for one hat.
 
-// GET request for one hat. 
-router.get('/hat/:id', hat_controller.hat_detail); 
+router.get('/hat/:id', hat_controller.hat_detail);
 
-// GET request for list of all hat items. 
-router.get('/hat', hat_controller.hat_list); 
 
-// GET detail hat page */ 
-router.get('/detail', hat_controller.hat_view_one_Page); 
 
-/* GET create hat page */ 
-router.get('/create', hat_controller.hat_create_Page); 
+router.get('/hat', hat_controller.hat_list);
 
-/* GET create update page */ 
-router.get('/update', hat_controller.hat_update_Page); 
-
-/* GET delete hat page */ 
-router.get('/delete', hat_controller.hat_delete_Page); 
- 
-
-module.exports = router; 
-
+module.exports = router;
